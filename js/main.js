@@ -68,3 +68,34 @@ document.getElementsByClassName('image-container')[active].classList.add('active
 
 console.log(document.querySelector('.thumb'));
 document.getElementsByClassName('thumb')[active].classList.add('active');
+
+const next = document.querySelector('.next');
+
+next.addEventListener('click', function(){
+    active++;
+    if(active > imageCollection.length -1){
+        active = 0;
+    }
+    
+
+    document.querySelector('.image-container.active').classList.remove('active');
+    document.getElementsByClassName('image-container')[active].classList.add('active');
+
+    document.querySelector('.thumb.active').classList.remove('active');
+    document.getElementsByClassName('thumb')[active].classList.add('active');
+});
+
+const prev = document.querySelector('.prev');
+
+prev.addEventListener('click', function(){
+    active--;
+    if(active < 0){
+        active = imageCollection.length - 1;
+    }
+
+    document.querySelector('.image-container.active').classList.remove('active');
+    document.getElementsByClassName('image-container')[active].classList.add('active');
+
+    document.querySelector('.thumb.active').classList.remove('active');
+    document.getElementsByClassName('thumb')[active].classList.add('active');
+});
