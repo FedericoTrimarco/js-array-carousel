@@ -72,9 +72,10 @@ document.getElementsByClassName('thumb')[active].classList.add('active');
 const next = document.querySelector('.next');
 
 next.addEventListener('click', function(){
-    active++;
-    if(active > imageCollection.length -1){
+    if(active === imageCollection.length -1){
         active = 0;
+    } else{
+        active++;
     }
     
 
@@ -88,9 +89,10 @@ next.addEventListener('click', function(){
 const prev = document.querySelector('.prev');
 
 prev.addEventListener('click', function(){
-    active--;
-    if(active < 0){
+    if(active === 0){
         active = imageCollection.length - 1;
+    } else{
+        active--;
     }
 
     document.querySelector('.image-container.active').classList.remove('active');
